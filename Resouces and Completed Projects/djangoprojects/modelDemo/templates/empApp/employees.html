@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Employee Information</title>
+  </head>
+  <body>
+    <h1>Employee List:</h1>
+    {% if employees %}
+    <table>
+      <thead>
+        <th>First Name</th>
+        <th>Last NAME</th>
+        <th>Salary</th>
+        <th>Email</th>
+      </thead>
+      {% for emp in employees %}
+      <tr>
+        <td>{{emp.firstName}}</td>
+        <td>{{emp.lastName}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.email}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {%else%}
+    <p>No records found</p>
+    {% endif %}
+
+  </body>
+</html>

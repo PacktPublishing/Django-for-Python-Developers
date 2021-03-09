@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form method="post">
+      {{form.as_p}}
+      {%csrf_token%}
+      <input type="submit" value="Add">
+      <a href="/displayItems">Dispaly Cart</a>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+img{
+  heigh: 300px;
+  width: 300px;
+  border: 10px brown groove;
+  margin: 0% 20%;
+}
+
+h1{
+  color:red;
+  text-align: center;
+}

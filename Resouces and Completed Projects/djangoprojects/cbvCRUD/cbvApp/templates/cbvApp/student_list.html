@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{%extends 'cbvApp/base.html'%}
+{%block body_block%}
+{%load custFilters%}
+    <h1>Students:</h1>
+    <table border="2">
+      <thead>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last NAME</th>
+        <th>Test Score</th>
+      </thead>
+      {% for student in student_list%}
+      <tr>
+        <td><a href="/{{student.id}}">{{student.id}}</a></td>
+        <td>{{student.firstName | myAppend:"Mr "}}</td>
+        <td>{{student.lastName | myLower}}</td>
+        <td>{{student.testScore | add:"2"}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+    <br/><br/><br/>
+    <a href="/create">Add Student</a>
+{%endblock%}

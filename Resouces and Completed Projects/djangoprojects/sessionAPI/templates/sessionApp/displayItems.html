@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Items in the cart:</h1>
+    {%if request.session%}
+    <table>
+      <thead>
+        <th>Product Name</th>
+        <th>Quantity</th>
+      </thead>
+      {%for key,value in request.session.items%}
+      <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+    {%else%}
+    <b>Cart is empty</b>
+    {%endif%}
+  </body>
+</html>
