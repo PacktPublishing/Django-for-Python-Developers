@@ -1,0 +1,34 @@
+docker run -d -p 6666:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=test1234" --env="MYSQL_DATABASE=clinicalsdb" mysql:8.0.15 --default-authentication-plugin=mysql_native_password
+
+docker exec -it docker-mysql bash
+
+mysql -uroot -p
+
+show databases;
+
+use clinicalsdb;
+
+show tables;
+
+------------------------------------------------------
+
+pip freeze > requirements.txt
+
+In settings.py add:
+
+'HOST': 'docker-mysql'
+
+------------------------------------------------------
+
+docker build -f Dockerfile -t clinicals_app .
+
+docker run -t --name=clinicals-app --link docker-mysql:mysql -p 10555:8000 clinicals_app
+
+docker exec -it clinicals-app bash
+
+docker exec -it clinicals-app python manage.py migrate
+--------------------------------
+
+Testing: 
+
+http://localhost:10555 

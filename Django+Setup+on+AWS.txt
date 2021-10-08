@@ -1,0 +1,36 @@
+yum install -y mariadb-server
+
+systemctl enable mariadb
+
+systemctl start mariadb
+
+mysql_secure_installation
+
+mysql -uroot -p
+
+---------------------------------------------
+
+yum install python3
+
+pip3 install django
+
+yum install mysql-devel gcc gcc-devel python3-devel
+
+pip3 install mysqlclient
+
+-----------------------------------------------
+yum install git
+
+git clone https://github.com/bharaththippireddy/clinicals
+
+cd clinicals
+
+python3 manage.py migrate
+
+------------------------------------------------
+
+In setting.py add the ec2 DNS or IP:
+
+ALLOWED_HOSTS = ['AWS DNS Name']
+
+python3 manage.py runserver 0.0.0.0:8000
